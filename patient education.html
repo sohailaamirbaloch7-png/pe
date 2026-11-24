@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient Education | Belleville Dental</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* ---------- Our own CSS ---------- */
+    .hero { background: #eef4ff; padding: 60px 0; }
+    .hero span { color: #0d6efd; }
+    .section-title { text-align: center; font-weight: 700; }
+    .section-sub { text-align: center; color: #6c757d; margin-bottom: 30px; }
+
+    /* All card images get the same size */
+    .card-img-top { height: 200px; object-fit: cover; background: #dbe8ff; }
+
+    /* "Read more" button looks like a link */
+    .read-more { padding: 0; font-size: 14px; text-decoration: none; }
+
+    /* Image inside the popup */
+    .modal-img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 8px; background: #dbe8ff; }
+    .modal-body h6 { color: #0d6efd; font-weight: 700; margin-top: 18px; }
+    .modal-body ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="fw-bold">Understand your teeth, <span>care with confidence.</span></h1>
+      <p class="lead text-secondary">Simple guides to help you look after your smile.</p>
+
+      <!-- Education text card -->
+      <div class="card p-3 mt-4">
+        <h5 class="card-title text-primary">Why Patient Education Matters</h5>
+        <p class="card-text text-secondary mb-2">
+          Most dental problems like cavities and gum disease can be prevented
+          when patients know how to take care of their teeth at home.
+          Understanding what causes plaque, how sugar harms enamel and why
+          regular cleaning is important helps you make better daily choices.
+        </p>
+        <p class="card-text text-secondary mb-0">
+          Informed patients feel less afraid of treatment, notice warning
+          signs early and follow the dentist's advice with confidence.
+          Read the topics below to learn how to protect your teeth for life.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT EDUCATION CARDS ========== -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Patient Education</h2>
+      <p class="section-sub">Click any topic to read more.</p>
+
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="./images/brush.png" class="card-img-top" alt="Brushing and flossing">
+            <div class="card-body">
+              <h5 class="card-title">Brushing &amp; Flossing</h5>
+              <p class="card-text text-secondary">The right technique and routine to keep teeth and gums healthy.</p>
+              <button type="button" class="btn btn-link read-more" onclick="openTopic(0)">Read more →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="./images/gum.png" class="card-img-top" alt="Gum disease">
+            <div class="card-body">
+              <h5 class="card-title">Gum Disease</h5>
+              <p class="card-text text-secondary">Spot early signs of gingivitis and learn how to prevent it.</p>
+              <button type="button" class="btn btn-link read-more" onclick="openTopic(1)">Read more →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="./images/teeth.png" class="card-img-top" alt="Teeth whitening">
+            <div class="card-body">
+              <h5 class="card-title">Teeth Whitening</h5>
+              <p class="card-text text-secondary">What to expect from whitening and how to protect your enamel.</p>
+              <button type="button" class="btn btn-link read-more" onclick="openTopic(2)">Read more →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="./images/root canal.png" class="card-img-top" alt="Root canal care">
+            <div class="card-body">
+              <h5 class="card-title">Root Canal Care</h5>
+              <p class="card-text text-secondary">Before and after care so you recover comfortably.</p>
+              <button type="button" class="btn btn-link read-more" onclick="openTopic(3)">Read more →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="./images/kids.png" class="card-img-top" alt="Kids dental care">
+            <div class="card-body">
+              <h5 class="card-title">Kids Dental Care</h5>
+              <p class="card-text text-secondary">Healthy habits for children from their first tooth.</p>
+              <button type="button" class="btn btn-link read-more" onclick="openTopic(4)">Read more →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100">
+            <img src="./images/emergency.png" class="card-img-top" alt="Dental emergency">
+            <div class="card-body">
+              <h5 class="card-title">Dental Emergencies</h5>
+              <p class="card-text text-secondary">What to do when a tooth is knocked out, cracked or painful.</p>
+              <button type="button" class="btn btn-link read-more" onclick="openTopic(5)">Read more →</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ (Bootstrap accordion) ========== -->
+  <section class="pb-5">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Quick answers to common questions.</p>
+
+      <div class="accordion" id="faq">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f1">
+              Is a root canal painful?
+            </button>
+          </h2>
+          <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body">It is done under local anesthesia and feels similar to getting a filling.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2">
+              How often should I visit the dentist?
+            </button>
+          </h2>
+          <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body">Every six months for a check-up and cleaning, or as advised.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3">
+              What should I do in a dental emergency?
+            </button>
+          </h2>
+          <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body">Rinse with warm water, apply a cold pack and contact the clinic right away.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="text-center text-secondary py-3 border-top">
+    &copy; 2026 Belleville Dental
+  </footer>
+
+  <!-- ========== POPUP (MODAL) FOR READ MORE ========== -->
+  <div class="modal fade" id="topicModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary fw-bold" id="modalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImg" class="modal-img mb-3" src="" alt="">
+          <div id="modalText"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (needed for the FAQ accordion and the popup) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ---------- Content for each "Read more" popup ----------
+    var topics = [
+      {
+        title: "Brushing & Flossing",
+        img: "./images/brush.png",
+        text: `
+          <p>Brushing and flossing remove plaque, the sticky layer of bacteria that causes cavities and gum disease.</p>
+          <h6>How to brush</h6>
+          <ul>
+            <li>Brush two times a day, for two minutes each time.</li>
+            <li>Use a soft toothbrush and fluoride toothpaste.</li>
+            <li>Hold the brush at a slight angle to the gums and use gentle circles.</li>
+            <li>Clean the outer, inner and chewing surfaces, and brush your tongue lightly.</li>
+            <li>Change your toothbrush every 3 months, or sooner if the bristles are bent.</li>
+          </ul>
+          <h6>How to floss</h6>
+          <ul>
+            <li>Floss once a day, ideally before bedtime.</li>
+            <li>Slide the floss gently between teeth and curve it around each tooth in a C shape.</li>
+            <li>Move it up and down under the gum line. Do not snap it down hard.</li>
+          </ul>
+          <h6>Good to know</h6>
+          <p>Do not brush too hard. Hard brushing can wear enamel and push gums back.</p>
+        `
+      },
+      {
+        title: "Gum Disease",
+        img: "./images/gum.png",
+        text: `
+          <p>Gum disease starts when plaque stays on the teeth and irritates the gums. It is common, but it can be prevented and treated, especially when found early.</p>
+          <h6>Stages</h6>
+          <ul>
+            <li><b>Gingivitis:</b> the early stage. Gums are red, swollen and may bleed when brushing. It can be reversed with good cleaning.</li>
+            <li><b>Periodontitis:</b> if gingivitis is ignored, the infection spreads below the gum line and damages the bone that holds the teeth. Teeth can become loose.</li>
+          </ul>
+          <h6>Warning signs</h6>
+          <ul>
+            <li>Bleeding gums while brushing or flossing</li>
+            <li>Bad breath that does not go away</li>
+            <li>Gums that look red, swollen or are pulling back</li>
+            <li>Loose teeth or a change in how teeth fit together</li>
+          </ul>
+          <h6>Prevention</h6>
+          <p>Brush twice a day, floss daily, do not smoke and visit your dentist every 6 months for cleaning. Smoking and diabetes increase the risk of gum disease.</p>
+        `
+      },
+      {
+        title: "Teeth Whitening",
+        img: "./images/teeth.png",
+        text: `
+          <p>Whitening lightens the colour of teeth that have become stained or yellow over time. It does not make teeth permanently white, and results differ from person to person.</p>
+          <h6>Common causes of stains</h6>
+          <ul>
+            <li>Tea, coffee and cola</li>
+            <li>Smoking and chewing tobacco</li>
+            <li>Ageing and thinning of enamel</li>
+          </ul>
+          <h6>What to expect</h6>
+          <ul>
+            <li>Whitening works best on natural teeth. Crowns and fillings do not change colour.</li>
+            <li>Some people feel temporary sensitivity or mild gum irritation.</li>
+            <li>Results can last from months to a couple of years, depending on your habits.</li>
+          </ul>
+          <h6>Protect your enamel</h6>
+          <ul>
+            <li>Have a check-up first so cavities or gum problems are treated before whitening.</li>
+            <li>Follow your dentist's instructions and do not overuse whitening products.</li>
+            <li>Rinse with water after tea or coffee and keep brushing twice a day.</li>
+          </ul>
+        `
+      },
+      {
+        title: "Root Canal Care",
+        img: "./images/root canal.png",
+        text: `
+          <p>A root canal treatment removes infected or damaged pulp from inside a tooth so that the tooth can be saved instead of pulled out. It is done under local anesthesia and feels similar to getting a filling.</p>
+          <h6>Before treatment</h6>
+          <ul>
+            <li>Tell your dentist about your medicines and any allergies.</li>
+            <li>Eat a light meal before the visit.</li>
+            <li>Take any antibiotics or medicines exactly as your dentist advises.</li>
+          </ul>
+          <h6>After treatment</h6>
+          <ul>
+            <li>Numbness goes away after a few hours. Avoid eating until it does, so you do not bite your cheek or tongue.</li>
+            <li>Mild soreness for a few days is normal. Use pain medicine only as advised by your dentist.</li>
+            <li>Avoid chewing hard food on that tooth until the final filling or crown is placed.</li>
+            <li>Brush and floss as usual and keep your follow-up appointment.</li>
+          </ul>
+          <h6>Call your dentist if</h6>
+          <p>You have severe pain, swelling, fever, or the bite feels uneven.</p>
+        `
+      },
+      {
+        title: "Kids Dental Care",
+        img: "./images/kids.png",
+        text: `
+          <p>Healthy habits start early. Baby teeth hold space for adult teeth, so looking after them matters.</p>
+          <h6>Simple guidelines</h6>
+          <ul>
+            <li>Clean your baby's gums with a soft cloth before teeth appear.</li>
+            <li>Start brushing when the first tooth comes in. Use a very small smear of fluoride toothpaste for children under 3, and a pea-sized amount from age 3 to 6.</li>
+            <li>Help children brush until they can do it well on their own.</li>
+            <li>Take your child for the first dental visit by their first birthday, or when the first tooth appears.</li>
+          </ul>
+          <h6>Food and habits</h6>
+          <ul>
+            <li>Limit sweets, juices and sticky snacks.</li>
+            <li>Do not put a baby to sleep with a milk or juice bottle.</li>
+            <li>Make brushing fun by brushing together as a family.</li>
+          </ul>
+        `
+      },
+      {
+        title: "Dental Emergencies",
+        img: "./images/emergency.png",
+        text: `
+          <p>If you have a dental emergency, stay calm and contact the clinic right away. Acting quickly can save a tooth.</p>
+          <h6>Knocked-out tooth</h6>
+          <ul>
+            <li>Pick the tooth up by the crown (the white part), not the root.</li>
+            <li>If dirty, rinse it gently with milk or water. Do not scrub it.</li>
+            <li>If possible, put it back in the socket and hold it there. Otherwise keep it in milk.</li>
+            <li>See a dentist as soon as possible, ideally within an hour.</li>
+          </ul>
+          <h6>Cracked or broken tooth</h6>
+          <ul>
+            <li>Rinse your mouth with warm water.</li>
+            <li>Apply a cold pack on the cheek to reduce swelling.</li>
+            <li>Keep any broken pieces and bring them to the dentist.</li>
+          </ul>
+          <h6>Severe toothache</h6>
+          <ul>
+            <li>Rinse with warm water and gently floss to remove any food stuck between teeth.</li>
+            <li>Use a cold pack outside the cheek. Do not place medicine directly on the gum.</li>
+          </ul>
+          <h6>Go to emergency care immediately if</h6>
+          <p>You have heavy bleeding, swelling of the face or neck, difficulty breathing or swallowing, or injury to the jaw.</p>
+        `
+      }
+    ];
+
+    // ---------- Open the popup with the chosen topic ----------
+    function openTopic(index) {
+      var t = topics[index];
+      document.getElementById("modalTitle").textContent = t.title;
+      document.getElementById("modalImg").src = t.img;
+      document.getElementById("modalImg").alt = t.title;
+      document.getElementById("modalText").innerHTML = t.text;
+
+      var modal = new bootstrap.Modal(document.getElementById("topicModal"));
+      modal.show();
+    }
+  </script>
+</body>
+</html>
